@@ -19,7 +19,7 @@ export default function ChatPage() {
         const user = res.data;
         console.log('User:', user);
         setSessionValid(true);
-      } catch (err) {
+      } catch {
         router.push('/'); // Redirect to home if not logged in
       } finally {
         setLoading(false);
@@ -66,7 +66,7 @@ function ChatInterface() {
       const event = data.data;
       const start = new Date(event?.start?.dateTime).toLocaleString();
       const end = new Date(event?.end?.dateTime).toLocaleString();
-      const participants = event?.attendees?.map((a: any) => a.email).join(', ') || 'No attendees';
+      const participants = event?.attendees?.map((a: { email: string }) => a.email).join(', ') || 'No attendees';
       const summary = event?.summary || 'Untitled Event';
       const link = event?.htmlLink || '#';
 
