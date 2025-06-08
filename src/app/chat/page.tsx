@@ -13,7 +13,7 @@ export default function ChatPage() {
     const validateSession = async () => {
       try {
         // Check if the user is logged in by fetching user data
-        const res = await axios.get('http://localhost:8000/oauth/me', {
+        const res = await axios.get('http://16.171.175.156/oauth/me', {
           withCredentials: true, // send cookies with the request
         });
         const user = res.data;
@@ -54,10 +54,11 @@ function ChatInterface() {
     setInput('');
 
     try {
-      const res = await axios.post('http://localhost:8000/prompt/', { prompt: input }, {
+      const res = await axios.post('http://16.171.175.156/prompt/', { prompt: input }, {
         withCredentials: true,
         headers: { 'Content-Type': 'application/json' },
       });
+      console.log(res)
 
       const data = res.data;
 
