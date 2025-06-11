@@ -5,7 +5,7 @@ import React from 'react'
 
 export default function HomePage() {
   const handleSignIn = () => {
-    window.location.href = 'http://16.171.175.156/oauth/login' // Your FastAPI OAuth2 login endpoint
+    window.location.href = 'https://ai-agents.ddns.net/oauth/login' // Your FastAPI OAuth2 login endpoint
   }
 
   return (
